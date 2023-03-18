@@ -1,5 +1,4 @@
 ﻿using MultiPrecision;
-using MultiPrecisionIntegrate;
 using System.Collections.ObjectModel;
 using System.IO.Compression;
 
@@ -7,16 +6,16 @@ namespace MultiPrecisionIntegrate {
     public static class GaussLegendrePoints<N> where N : struct, IConstant {
         public const int MinPoints = 4, MaxPoints = 256, MaxLength = 64;
 
-        public static ReadOnlyDictionary<int, ReadOnlyCollection<(MultiPrecision<N> x, MultiPrecision<N> w)>> Table;
+        public static ReadOnlyDictionary<int, ReadOnlyCollection<(MultiPrecision<N> x, MultiPrecision<N> w)>> Table { private set; get; }
 
         static GaussLegendrePoints() {
             if (MultiPrecision<N>.Length > MaxLength) {
-                throw new NotSupportedException("Too large multi precision.");
+                throw new NotSupportedException($"Too large multi precision. (N <= {MaxLength})");
             }
 
             using MemoryStream stream = new();
             using (MemoryStream resorce = new(Resource.legendre_01_n64)) {
-                using var decompressor = new GZipStream(resorce, CompressionMode.Decompress);
+                using GZipStream decompressor = new(resorce, CompressionMode.Decompress);
 
                 decompressor.CopyTo(stream);
             }

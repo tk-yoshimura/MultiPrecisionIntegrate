@@ -1,5 +1,5 @@
-using MultiPrecision;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MultiPrecision;
 using MultiPrecisionIntegrate;
 
 namespace MultiPrecisionIntegrateTest {
