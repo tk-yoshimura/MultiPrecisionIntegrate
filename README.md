@@ -16,8 +16,8 @@
 // Gauss-Legendre Integrate 32 Points: sin(t) t=0 to pi
 
 GaussLegendreIntegral<Pow2.N8>.Integrate(
-    MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, 
-    MultiPrecision<Pow2.N8>.PI, 
+    MultiPrecision<Pow2.N8>.Sin, 
+    MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, 
     n: 32
 );
 ```
