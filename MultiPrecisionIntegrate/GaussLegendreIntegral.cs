@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 namespace MultiPrecisionIntegrate {
     public static class GaussLegendreIntegral<N> where N : struct, IConstant {
         public static MultiPrecision<N> Integrate(Func<MultiPrecision<N>, MultiPrecision<N>> f, MultiPrecision<N> a, MultiPrecision<N> b, int n) {
-            if (n < GaussLegendrePoints<N>.MinPoints || n > GaussLegendrePoints<N>.MaxPoints) {
+            if (n < GaussLegendrePoints.MinPoints || n > GaussLegendrePoints.MaxPoints) {
                 throw new ArgumentOutOfRangeException(nameof(n));
             }
 

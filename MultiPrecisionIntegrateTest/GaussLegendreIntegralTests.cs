@@ -7,7 +7,7 @@ namespace MultiPrecisionIntegrateTest {
     public class GaussLegendreIntegralTests {
         [TestMethod]
         public void IntegrateSinTest() {
-            for (int n = 4; n <= 256; n++) {
+            for (int n = GaussLegendrePoints.MinPoints; n <= GaussLegendrePoints.MaxPoints; n++) {
                 MultiPrecision<Pow2.N8> y = GaussLegendreIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, n);
 
                 Console.WriteLine($"{n}\t {y}");
@@ -18,7 +18,7 @@ namespace MultiPrecisionIntegrateTest {
 
         [TestMethod]
         public void IntegrateExpTest() {
-            for (int n = 4; n <= 256; n++) {
+            for (int n = GaussLegendrePoints.MinPoints; n <= GaussLegendrePoints.MaxPoints; n++) {
                 MultiPrecision<Pow2.N8> y = GaussLegendreIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Exp, 1, 4, n);
 
                 Console.WriteLine($"{n}\t {y}");

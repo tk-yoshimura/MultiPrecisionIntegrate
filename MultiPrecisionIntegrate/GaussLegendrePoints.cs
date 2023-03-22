@@ -3,14 +3,16 @@ using System.Collections.ObjectModel;
 using System.IO.Compression;
 
 namespace MultiPrecisionIntegrate {
-    public static class GaussLegendrePoints<N> where N : struct, IConstant {
+    public static class GaussLegendrePoints {
         public const int MinPoints = 4, MaxPoints = 256, MaxLength = 64;
+    }
 
+    public static class GaussLegendrePoints<N> where N : struct, IConstant {
         public static ReadOnlyDictionary<int, ReadOnlyCollection<(MultiPrecision<N> x, MultiPrecision<N> w)>> Table { private set; get; }
 
         static GaussLegendrePoints() {
-            if (MultiPrecision<N>.Length > MaxLength) {
-                throw new NotSupportedException($"Too large multi precision. (N <= {MaxLength})");
+            if (MultiPrecision<N>.Length > GaussLegendrePoints.MaxLength) {
+                throw new NotSupportedException($"Too large multi precision. (N <= {GaussLegendrePoints.MaxLength})");
             }
 
             using MemoryStream stream = new();
@@ -25,7 +27,7 @@ namespace MultiPrecisionIntegrate {
             Dictionary<int, ReadOnlyCollection<(MultiPrecision<N> x, MultiPrecision<N> w)>> table = new();
 
             using (BinaryReader sr = new(stream)) {
-                for (int n = MinPoints; n <= MaxPoints; n++) {
+                for (int n = GaussLegendrePoints.MinPoints; n <= GaussLegendrePoints.MaxPoints; n++) {
                     int ns = sr.ReadInt32();
                     if (n != ns) {
                         throw new IOException("The format of resource file is invalid.");

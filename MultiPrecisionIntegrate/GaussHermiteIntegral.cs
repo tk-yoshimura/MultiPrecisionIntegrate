@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 namespace MultiPrecisionIntegrate {
     public static class GaussHermiteIntegral<N> where N : struct, IConstant {
         public static MultiPrecision<N> Integrate(Func<MultiPrecision<N>, MultiPrecision<N>> f, int n, bool f_expscaled = false) {
-            if (n < GaussHermitePoints<N>.MinPoints || n > GaussHermitePoints<N>.MaxPoints) {
+            if (n < GaussHermitePoints.MinPoints || n > GaussHermitePoints.MaxPoints) {
                 throw new ArgumentOutOfRangeException(nameof(n));
             }
 
