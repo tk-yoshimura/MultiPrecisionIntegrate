@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("MultiPrecisionIntegrate")]
-[assembly: AssemblyDescription("Multi Precision Numerical Integration Implements")]
+[assembly: AssemblyDescription("MultiPrecision Numerical Integration Implements")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MultiPrecisionIntegrate")]

@@ -1,5 +1,5 @@
 # MultiPrecisionIntegrate
- Float MultiPrecision Numerical Integration Implements 
+ MultiPrecision Numerical Integration Implements
 
 ## Requirement
 .NET 6.0
