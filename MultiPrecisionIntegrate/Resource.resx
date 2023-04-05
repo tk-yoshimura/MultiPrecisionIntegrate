@@ -118,6 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="G15K31_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g15k31_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G16K33_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g16k33_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G31K63_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g31k63_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G32K65_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g32k65_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G3K7_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g3k7_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G4K9_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g4k9_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G7K15_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g7k15_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G8K17_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resource\g8k17_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="hermite_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resource\hermite_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

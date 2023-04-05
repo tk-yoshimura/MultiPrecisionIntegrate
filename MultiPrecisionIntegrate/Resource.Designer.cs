@@ -1,4 +1,6 @@
 ﻿namespace MultiPrecisionIntegrate {
+    using System;
+
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -30,6 +32,62 @@
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        internal static byte[] G15K31_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G15K31_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] G16K33_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G16K33_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] G31K63_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G31K63_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] G32K65_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G32K65_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] G3K7_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G3K7_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] G4K9_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G4K9_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] G7K15_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G7K15_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] G8K17_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G8K17_n64", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

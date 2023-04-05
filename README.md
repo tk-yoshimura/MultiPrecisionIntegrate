@@ -20,6 +20,16 @@ GaussLegendreIntegral<Pow2.N8>.Integrate(
     MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, 
     n: 32
 );
+
+// Gauss-Kronrod Adaptive Integrate 7-15: exp(t) t=1 to 4
+
+GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(
+    MultiPrecision<Pow2.N8>.Exp, 
+    1, 4, 
+    eps: 1e-40, 
+    order: GaussKronrodOrder.G7K15, 
+    depth: 10
+);
 ```
 
 ## Licence
