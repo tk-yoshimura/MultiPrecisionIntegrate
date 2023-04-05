@@ -4,7 +4,7 @@ using System.IO.Compression;
 
 namespace MultiPrecisionIntegrate {
     public static class GaussLegendrePoints {
-        public const int MinPoints = 4, MaxPoints = 256, MaxLength = 64;
+        public const int MinPoints = 4, MaxPoints = 64, MaxLength = 64;
     }
 
     public static class GaussLegendrePoints<N> where N : struct, IConstant {

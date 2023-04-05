@@ -13,6 +13,10 @@ namespace MultiPrecisionIntegrate {
             MultiPrecision<N> s = MultiPrecision<N>.Zero;
             MultiPrecision<N> r = b - a;
 
+            if (!r.IsFinite) {
+                throw new ArgumentException("Invalid integation interval.", $"{nameof(a)},{nameof(b)}");
+            }
+
             foreach ((MultiPrecision<N> x, MultiPrecision<N> w) in ps) {
                 MultiPrecision<N> x_shifted = x * r + a;
 
