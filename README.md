@@ -14,7 +14,6 @@
 ## Usage
 ```csharp
 // Gauss-Legendre Integrate 32 Points: sin(t) t=0 to pi
-
 GaussLegendreIntegral<Pow2.N8>.Integrate(
     MultiPrecision<Pow2.N8>.Sin, 
     MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, 
@@ -22,7 +21,6 @@ GaussLegendreIntegral<Pow2.N8>.Integrate(
 );
 
 // Gauss-Kronrod Adaptive Integrate 7-15: exp(t) t=1 to 4
-
 GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(
     MultiPrecision<Pow2.N8>.Exp, 
     1, 4, 
