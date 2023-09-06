@@ -21,7 +21,7 @@ namespace MultiPrecisionIntegrate {
             MultiPrecision<N> sg = MultiPrecision<N>.Zero, sk = MultiPrecision<N>.Zero;
             MultiPrecision<N> r = b - a;
 
-            if (!r.IsFinite) {
+            if (!MultiPrecision<N>.IsFinite(r)) {
                 throw new ArgumentException("Invalid integation interval.", $"{nameof(a)},{nameof(b)}");
             }
 
@@ -62,7 +62,7 @@ namespace MultiPrecisionIntegrate {
         }
 
         private static (MultiPrecision<N> value, MultiPrecision<N> error) AdaptiveIntegrateInfiniteInterval(Func<MultiPrecision<N>, MultiPrecision<N>> f, MultiPrecision<N> a, MultiPrecision<N> b, MultiPrecision<N> eps, GaussKronrodOrder order = GaussKronrodOrder.G7K15, int depth = 8) {
-            if (a.IsNaN || b.IsNaN) {
+            if (MultiPrecision<N>.IsNaN(a) || MultiPrecision<N>.IsNaN(b)) {
                 throw new ArgumentException("Invalid integation interval.", $"{nameof(a)},{nameof(b)}");
             }
 
@@ -72,13 +72,13 @@ namespace MultiPrecisionIntegrate {
                 return (-value, error);
             }
 
-            if (a.IsInfinity && b.IsInfinity) {
+            if (MultiPrecision<N>.IsInfinity(a) && MultiPrecision<N>.IsInfinity(b)) {
                 if (a.Sign == b.Sign) {
                     throw new ArgumentException("Invalid integation interval.", $"{nameof(a)},{nameof(b)}");
                 }
 
                 MultiPrecision<N> g(MultiPrecision<N> t) {
-                    if (t.IsZero) {
+                    if (MultiPrecision<N>.IsZero(t)) {
                         return MultiPrecision<N>.Zero;
                     }
 
@@ -90,10 +90,10 @@ namespace MultiPrecisionIntegrate {
                 return AdaptiveIntegrateFiniteInterval(g, 0, 1, eps, order, depth);
             }
 
-            if (a.IsFinite && b.IsInfinity) {
-                if (a.IsZero) {
+            if (MultiPrecision<N>.IsFinite(a) && MultiPrecision<N>.IsInfinity(b)) {
+                if (MultiPrecision<N>.IsZero(a)) {
                     MultiPrecision<N> g(MultiPrecision<N> t) {
-                        if (t.IsZero) {
+                        if (MultiPrecision<N>.IsZero(t)) {
                             return MultiPrecision<N>.Zero;
                         }
 
@@ -106,7 +106,7 @@ namespace MultiPrecisionIntegrate {
                 }
                 else {
                     MultiPrecision<N> g(MultiPrecision<N> t) {
-                        if (t.IsZero) {
+                        if (MultiPrecision<N>.IsZero(t)) {
                             return MultiPrecision<N>.Zero;
                         }
 
@@ -119,10 +119,10 @@ namespace MultiPrecisionIntegrate {
                 }
             }
 
-            if (a.IsInfinity && b.IsFinite) {
-                if (b.IsZero) {
+            if (MultiPrecision<N>.IsInfinity(a) && MultiPrecision<N>.IsFinite(b)) {
+                if (MultiPrecision<N>.IsZero(b)) {
                     MultiPrecision<N> g(MultiPrecision<N> t) {
-                        if (t.IsZero) {
+                        if (MultiPrecision<N>.IsZero(t)) {
                             return MultiPrecision<N>.Zero;
                         }
 
@@ -135,7 +135,7 @@ namespace MultiPrecisionIntegrate {
                 }
                 else {
                     MultiPrecision<N> g(MultiPrecision<N> t) {
-                        if (t.IsZero) {
+                        if (MultiPrecision<N>.IsZero(t)) {
                             return MultiPrecision<N>.Zero;
                         }
 
@@ -152,7 +152,7 @@ namespace MultiPrecisionIntegrate {
         }
 
         public static (MultiPrecision<N> value, MultiPrecision<N> error) AdaptiveIntegrate(Func<MultiPrecision<N>, MultiPrecision<N>> f, MultiPrecision<N> a, MultiPrecision<N> b, MultiPrecision<N> eps, GaussKronrodOrder order = GaussKronrodOrder.G7K15, int depth = 8) {
-            if (a.IsFinite && b.IsFinite) {
+            if (MultiPrecision<N>.IsFinite(a) && MultiPrecision<N>.IsFinite(b)) {
                 return AdaptiveIntegrateFiniteInterval(f, a, b, eps, order, depth);
             }
             else {

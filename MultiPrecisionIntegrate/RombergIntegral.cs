@@ -7,7 +7,7 @@ namespace MultiPrecisionIntegrate {
         public static MultiPrecision<N> Integrate(Func<MultiPrecision<N>, MultiPrecision<N>> f, MultiPrecision<N> a, MultiPrecision<N> b, int precision_level = 16) {
             MultiPrecision<N> h = b - a;
 
-            if (!h.IsFinite) {
+            if (!MultiPrecision<N>.IsFinite(h)) {
                 throw new ArgumentOutOfRangeException($"{nameof(a)},{nameof(b)}");
             }
 

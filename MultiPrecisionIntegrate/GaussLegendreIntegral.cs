@@ -13,7 +13,7 @@ namespace MultiPrecisionIntegrate {
             MultiPrecision<N> s = MultiPrecision<N>.Zero;
             MultiPrecision<N> r = b - a;
 
-            if (!r.IsFinite) {
+            if (!MultiPrecision<N>.IsFinite(r)) {
                 throw new ArgumentException("Invalid integation interval.", $"{nameof(a)},{nameof(b)}");
             }
 

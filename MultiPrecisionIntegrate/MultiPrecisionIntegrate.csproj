@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ImplicitUsings>enable</ImplicitUsings>
     <Deterministic>false</Deterministic>
@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TYoshimura.MultiPrecision" Version="6.1.0" />
+    <PackageReference Include="TYoshimura.MultiPrecision" Version="6.2.0" />
   </ItemGroup>
 
   <ItemGroup>
