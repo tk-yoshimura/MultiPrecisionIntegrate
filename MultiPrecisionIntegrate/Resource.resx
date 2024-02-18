@@ -136,6 +136,12 @@
   <data name="G4K9_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resource\g4k9_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="G63K127_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resource\G63K127_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="G64K129_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resource\G64K129_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="G7K15_n64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resource\g7k15_n64.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

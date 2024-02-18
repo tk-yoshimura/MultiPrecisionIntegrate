@@ -25,6 +25,8 @@ namespace MultiPrecisionIntegrate {
                 { GaussKronrodOrder.G16K33, LoadTable(Resource.G16K33_n64, n: 16) },
                 { GaussKronrodOrder.G31K63, LoadTable(Resource.G31K63_n64, n: 31) },
                 { GaussKronrodOrder.G32K65, LoadTable(Resource.G32K65_n64, n: 32) },
+                { GaussKronrodOrder.G63K127, LoadTable(Resource.G63K127_n64, n: 63) },
+                { GaussKronrodOrder.G64K129, LoadTable(Resource.G64K129_n64, n: 64) },
             });
         }
 
