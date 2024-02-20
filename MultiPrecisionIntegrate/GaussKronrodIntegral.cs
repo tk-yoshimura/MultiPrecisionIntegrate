@@ -13,6 +13,8 @@ namespace MultiPrecisionIntegrate {
         G32K65 = 32,
         G63K127 = 63,
         G64K129 = 64,
+        G127K255 = 127,
+        G128K257 = 128,
     }
 
     public static class GaussKronrodIntegral<N> where N : struct, IConstant {
