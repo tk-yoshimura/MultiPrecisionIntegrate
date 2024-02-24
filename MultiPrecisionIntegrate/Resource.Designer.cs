@@ -63,6 +63,20 @@
             }
         }
 
+        internal static byte[] G255K511_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G255K511_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        internal static byte[] G256K513_n64 {
+            get {
+                object obj = ResourceManager.GetObject("G256K513_n64", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
         internal static byte[] G31K63_n64 {
             get {
                 object obj = ResourceManager.GetObject("G31K63_n64", resourceCulture);
