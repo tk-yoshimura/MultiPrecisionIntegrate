@@ -111,5 +111,64 @@ namespace MultiPrecisionIntegrateTest {
 
             Assert.AreEqual(0d, (double)(expected - GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(-x * x), MultiPrecision<Pow2.N8>.PositiveInfinity, MultiPrecision<Pow2.N8>.NegativeInfinity, 1e-40, GaussKronrodOrder.G32K65, maxdepth: 10).value), 1e-40);
         }
+
+        [TestMethod]
+        public void LimitedEvalIntegrateExpTest() {
+            (MultiPrecision<Pow2.N8> y, MultiPrecision<Pow2.N8> err, long eval_points) = GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(MultiPrecision<Pow2.N8>.Sin(16 * x)), 0, 4, 1e-25, discontinue_eval_points: 1024);
+
+            Console.WriteLine(y);
+            Console.WriteLine(err);
+            Console.WriteLine(eval_points);
+
+            Assert.IsTrue(MultiPrecision<Pow2.N8>.Abs(y - "5.09923585008566829954993402287") < 1e-29);
+            Assert.IsTrue(err < 1e-25);
+        }
+
+        [TestMethod]
+        public void LimitedDepthIntegrateExpTest() {
+            (MultiPrecision<Pow2.N8> y, MultiPrecision<Pow2.N8> err, long eval_points) = GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(MultiPrecision<Pow2.N8>.Sin(16 * x)), 0, 4, 1e-25, maxdepth: 10);
+
+            Console.WriteLine(y);
+            Console.WriteLine(err);
+            Console.WriteLine(eval_points);
+
+            Assert.IsTrue(MultiPrecision<Pow2.N8>.Abs(y - "5.09923585008566829954993402287") < 1e-29);
+            Assert.IsTrue(err < 1e-25);
+        }
+
+        [TestMethod]
+        public void LimitedEvalAndDepthIntegrateExpTest() {
+            (MultiPrecision<Pow2.N8> y, MultiPrecision<Pow2.N8> err, long eval_points) = GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(MultiPrecision<Pow2.N8>.Sin(16 * x)), 0, 4, 1e-25, maxdepth: 10, discontinue_eval_points: 1024);
+
+            Console.WriteLine(y);
+            Console.WriteLine(err);
+            Console.WriteLine(eval_points);
+
+            Assert.IsTrue(MultiPrecision<Pow2.N8>.Abs(y - "5.09923585008566829954993402287") < 1e-29);
+            Assert.IsTrue(err < 1e-25);
+        }
+
+        [TestMethod]
+        public void UnlimitedIntegrateExpTest() {
+            (MultiPrecision<Pow2.N8> y, MultiPrecision<Pow2.N8> err, long eval_points) = GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(MultiPrecision<Pow2.N8>.Sin(16 * x)), 0, 4, 1e-25);
+
+            Console.WriteLine(y);
+            Console.WriteLine(err);
+            Console.WriteLine(eval_points);
+
+            Assert.IsTrue(MultiPrecision<Pow2.N8>.Abs(y - "5.09923585008566829954993402287") < 1e-29);
+            Assert.IsTrue(err < 1e-25);
+        }
+
+        [TestMethod]
+        public void LimitedEvalIntegrateExpIncrementTest() {
+            for (int discontinue_eval_points = 16; discontinue_eval_points <= 8192; discontinue_eval_points *= 2) {
+                (MultiPrecision<Pow2.N8> y, MultiPrecision<Pow2.N8> err, long eval_points) = GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(MultiPrecision<Pow2.N8>.Sin(16 * x)), 0, 4, eps: 0, discontinue_eval_points: discontinue_eval_points);
+
+                Console.WriteLine(y);
+                Console.WriteLine(err);
+                Console.WriteLine(eval_points);
+            }
+        }
     }
 }
