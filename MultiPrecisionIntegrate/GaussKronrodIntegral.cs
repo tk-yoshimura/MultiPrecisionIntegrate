@@ -138,7 +138,7 @@ namespace MultiPrecisionIntegrate {
                 }
 
                 MultiPrecision<N> c = MultiPrecision<N>.Ldexp(a + b, -1), eps_half = MultiPrecision<N>.Ldexp(eps, -1);
-                long priority = double.ILogB((double)error);
+                long priority = error.Exponent;
                 queue.Enqueue((a, c, eps_half), -priority);
                 queue.Enqueue((c, b, eps_half), -priority);
             }
@@ -171,7 +171,7 @@ namespace MultiPrecisionIntegrate {
                 }
 
                 MultiPrecision<N> c = MultiPrecision<N>.Ldexp(a + b, -1), eps_half = MultiPrecision<N>.Ldexp(eps, -1);
-                long priority = double.ILogB((double)error);
+                long priority = error.Exponent;
                 depth -= 1;
                 queue.Enqueue((a, c, eps_half, depth), -priority);
                 queue.Enqueue((c, b, eps_half, depth), -priority);
