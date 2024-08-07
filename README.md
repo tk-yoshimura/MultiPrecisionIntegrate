@@ -37,6 +37,15 @@ GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(
     order: GaussKronrodOrder.G32K65, 
     maxdepth: 10
 );
+
+// Gauss-Kronrod Adaptive Integrate 32-65: exp(-t^2) t=-inf to +inf
+GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(
+    x => MultiPrecision<Pow2.N8>.Exp(-x * x), 
+    MultiPrecision<Pow2.N8>.NegativeInfinity, MultiPrecision<Pow2.N8>.PositiveInfinity, 
+    eps: 0, // Auto epsilon
+    order: GaussKronrodOrder.G32K65, 
+    maxdepth: 10
+);
 ```
 
 ## Licence
