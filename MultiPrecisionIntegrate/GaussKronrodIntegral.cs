@@ -181,6 +181,10 @@ namespace MultiPrecisionIntegrate {
         }
 
         private static (MultiPrecision<N> value, MultiPrecision<N> error, long eval_points) AdaptiveIntegrateFiniteInterval(Func<MultiPrecision<N>, MultiPrecision<N>> f, MultiPrecision<N> a, MultiPrecision<N> b, MultiPrecision<N> eps, GaussKronrodOrder order, int maxdepth, long discontinue_eval_points) {
+            if (MultiPrecision<N>.IsZero(eps)) {
+                eps = MultiPrecision<N>.Ldexp(MultiPrecision<N>.Abs(Integrate(f, a, b, order).value), -MultiPrecision<N>.Bits + 8);
+            }
+            
             if (maxdepth >= 0 && discontinue_eval_points >= 0) {
                 return LimitedDepthAndEvalIntegrateFiniteInterval(f, a, b, eps, order, maxdepth, discontinue_eval_points);
             }
