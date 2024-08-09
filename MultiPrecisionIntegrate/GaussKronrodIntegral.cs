@@ -33,10 +33,9 @@ namespace MultiPrecisionIntegrate {
             }
 
             for (int i = 0; i < ps.Count; i++) {
-                MultiPrecision<N> x = ps[i].x;
-                MultiPrecision<N> x_shifted = x * r + a;
+                MultiPrecision<N> x = ps[i].x * r + a;
 
-                MultiPrecision<N> y = f(x_shifted);
+                MultiPrecision<N> y = f(x);
 
                 sk += ps[i].wk * y;
 
@@ -182,7 +181,13 @@ namespace MultiPrecisionIntegrate {
 
         private static (MultiPrecision<N> value, MultiPrecision<N> error, long eval_points) AdaptiveIntegrateFiniteInterval(Func<MultiPrecision<N>, MultiPrecision<N>> f, MultiPrecision<N> a, MultiPrecision<N> b, MultiPrecision<N> eps, GaussKronrodOrder order, int maxdepth, long discontinue_eval_points) {
             if (MultiPrecision<N>.IsZero(eps)) {
-                eps = MultiPrecision<N>.Ldexp(MultiPrecision<N>.Abs(Integrate(f, a, b, order).value), -MultiPrecision<N>.Bits + 8);
+                (MultiPrecision<N> value, MultiPrecision<N> error) = Integrate(f, a, b, order);
+                eps = MultiPrecision<N>.Ldexp(MultiPrecision<N>.Abs(value), -MultiPrecision<N>.Bits + 8);
+
+                if (error < eps) {
+                    long eval_points = 1 + 2 * (int)order;
+                    return (value, error, eval_points);
+                }
             }
             
             if (maxdepth >= 0 && discontinue_eval_points >= 0) {
