@@ -17,7 +17,7 @@ namespace MultiPrecisionIntegrateTest {
 
             {
                 MultiPrecision<Pow2.N8> v = RombergIntegral<Pow2.N8>.Integrate(f, 0, MultiPrecision<Pow2.N8>.Sqrt(2) / 2, 20);
-                Assert.AreEqual(0, (double)((MultiPrecision<Pow2.N8>.PI + 2) / 8 - v), 1e-20);
+                Assert.AreEqual(0, (double)((MultiPrecision<Pow2.N8>.Pi + 2) / 8 - v), 1e-20);
             }
         }
     }

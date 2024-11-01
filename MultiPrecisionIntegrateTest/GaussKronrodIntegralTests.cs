@@ -8,12 +8,12 @@ namespace MultiPrecisionIntegrateTest {
         [TestMethod]
         public void IntegrateSinTest() {
             foreach (GaussKronrodOrder order in Enum.GetValues<GaussKronrodOrder>()) {
-                (MultiPrecision<Pow2.N8> y, MultiPrecision<Pow2.N8> err) = GaussKronrodIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, order);
+                (MultiPrecision<Pow2.N8> y, MultiPrecision<Pow2.N8> err) = GaussKronrodIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.Pi, order);
 
                 Console.WriteLine($"{order}\t {y}\t {err}");
             }
 
-            Assert.AreEqual(0d, (double)(2 - GaussKronrodIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, GaussKronrodOrder.G32K65).value), 1e-30);
+            Assert.AreEqual(0d, (double)(2 - GaussKronrodIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.Pi, GaussKronrodOrder.G32K65).value), 1e-30);
         }
 
         [TestMethod]
@@ -100,21 +100,21 @@ namespace MultiPrecisionIntegrateTest {
 
         [TestMethod]
         public void AdaptiveIntegrateInfiniteExpTest9() {
-            MultiPrecision<Pow2.N8> expected = MultiPrecision<Pow2.N8>.Sqrt(MultiPrecision<Pow2.N8>.PI);
+            MultiPrecision<Pow2.N8> expected = MultiPrecision<Pow2.N8>.Sqrt(MultiPrecision<Pow2.N8>.Pi);
 
             Assert.AreEqual(0d, (double)(expected - GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(-x * x), MultiPrecision<Pow2.N8>.NegativeInfinity, MultiPrecision<Pow2.N8>.PositiveInfinity, 1e-40, GaussKronrodOrder.G32K65, maxdepth: 10).value), 1e-40);
         }
 
         [TestMethod]
         public void AdaptiveIntegrateInfiniteExpTest10() {
-            MultiPrecision<Pow2.N8> expected = -MultiPrecision<Pow2.N8>.Sqrt(MultiPrecision<Pow2.N8>.PI);
+            MultiPrecision<Pow2.N8> expected = -MultiPrecision<Pow2.N8>.Sqrt(MultiPrecision<Pow2.N8>.Pi);
 
             Assert.AreEqual(0d, (double)(expected - GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(-x * x), MultiPrecision<Pow2.N8>.PositiveInfinity, MultiPrecision<Pow2.N8>.NegativeInfinity, 1e-40, GaussKronrodOrder.G32K65, maxdepth: 10).value), 1e-40);
         }
 
         [TestMethod]
         public void AdaptiveIntegrateInfiniteExpTest11() {
-            MultiPrecision<Pow2.N8> expected = -MultiPrecision<Pow2.N8>.Sqrt(MultiPrecision<Pow2.N8>.PI);
+            MultiPrecision<Pow2.N8> expected = -MultiPrecision<Pow2.N8>.Sqrt(MultiPrecision<Pow2.N8>.Pi);
 
             Assert.AreEqual(0d, (double)(expected - GaussKronrodIntegral<Pow2.N8>.AdaptiveIntegrate(x => MultiPrecision<Pow2.N8>.Exp(-x * x), MultiPrecision<Pow2.N8>.PositiveInfinity, MultiPrecision<Pow2.N8>.NegativeInfinity, eps: 0, order: GaussKronrodOrder.G32K65, maxdepth: 10).value), 1e-70);
         }

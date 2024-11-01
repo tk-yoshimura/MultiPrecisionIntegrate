@@ -8,12 +8,12 @@ namespace MultiPrecisionIntegrateTest {
         [TestMethod]
         public void IntegrateSinTest() {
             for (int n = GaussLegendrePoints.MinPoints; n <= GaussLegendrePoints.MaxPoints; n++) {
-                MultiPrecision<Pow2.N8> y = GaussLegendreIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, n);
+                MultiPrecision<Pow2.N8> y = GaussLegendreIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.Pi, n);
 
                 Console.WriteLine($"{n}\t {y}");
             }
 
-            Assert.AreEqual(0d, (double)(2 - GaussLegendreIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.PI, 32)), 1e-30);
+            Assert.AreEqual(0d, (double)(2 - GaussLegendreIntegral<Pow2.N8>.Integrate(MultiPrecision<Pow2.N8>.Sin, MultiPrecision<Pow2.N8>.Zero, MultiPrecision<Pow2.N8>.Pi, 32)), 1e-30);
         }
 
         [TestMethod]
