@@ -7,30 +7,38 @@ namespace MultiPrecisionIntegrate {
         readonly List<MultiPrecision<N>[]> values = new();
 
         public void Inject(MultiPrecision<N> new_value) {
-            if (SeriesCount <= 0) {
-                values.Add(new MultiPrecision<N>[] { new_value });
-                return;
+            lock (values) {
+                if (SeriesCount <= 0) {
+                    values.Add([new_value]);
+                    return;
+                }
+
+                MultiPrecision<N>[] t = values[SeriesCount - 1], t_next = new MultiPrecision<N>[SeriesCount + 1];
+
+                t_next[0] = new_value;
+
+                for (int i = 1; i <= SeriesCount; i++) {
+                    t_next[i] = t_next[i - 1] + (t_next[i - 1] - t[i - 1]) * R(i);
+                }
+
+                values.Add(t_next);
             }
-
-            MultiPrecision<N>[] t = values[SeriesCount - 1], t_next = new MultiPrecision<N>[SeriesCount + 1];
-
-            t_next[0] = new_value;
-
-            for (int i = 1; i <= SeriesCount; i++) {
-                t_next[i] = t_next[i - 1] + (t_next[i - 1] - t[i - 1]) * R(i);
-            }
-
-            values.Add(t_next);
         }
 
         private static MultiPrecision<N> R(int i) {
-            for (int k = rs.Count; k <= i; k++) {
-                MultiPrecision<N> r = 1d / (MultiPrecision<N>.Ldexp(1d, k * 2) - 1);
-
-                rs.Add(r);
+            if (i < rs.Count) { 
+                return rs[i];
             }
 
-            return rs[i];
+            lock (rs) {
+                for (int k = rs.Count; k <= i; k++) {
+                    MultiPrecision<N> r = 1d / (MultiPrecision<N>.Ldexp(1d, k * 2) - 1);
+
+                    rs.Add(r);
+                }
+
+                return rs[i];
+            }
         }
 
         public IEnumerable<MultiPrecision<N>> Series {
