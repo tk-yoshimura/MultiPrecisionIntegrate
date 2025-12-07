@@ -1,5 +1,5 @@
 # MultiPrecisionIntegrate
- MultiPrecision Numerical Integration Implements
+ MultiPrecision Numerical Integration Implements 
 
 ## Requirement
 .NET 10.0  
